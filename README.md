@@ -26,8 +26,8 @@ CSci-463-Project/
 │── 📂 diagrams/            # UML, Activity, State, and Class Diagrams
 │── 📂 tests/               # Test cases and results
 │── 📝 README.md            # Project description and guidelines
-│── 📝 Report_I.md          # First project report deliverables
-│── 📝 Report_II.md         # Second project report deliverables
+│── 📝 Project Report I.pdf        # First project report deliverables
+│── 📝 Project Report II.pdf         # Second project report deliverables
 │── 📝 Gantt_Chart.md       # Project timeline and milestones
 ```
 
