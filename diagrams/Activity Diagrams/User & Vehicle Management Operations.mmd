@@ -1,0 +1,26 @@
+flowchart TD
+    A[User Accesses Application] --> B{User Authentication}
+    B -->|Valid Credentials| C[Access User Settings]
+    B -->|Invalid Credentials| D[Display Error Message]
+
+    C --> E{Select Operation}
+    E -->|Add New Driver| F[Input Driver Details]
+    E -->|Remove Driver| G[Select Driver to Remove]
+    E -->|Add New Vehicle| H[Input Vehicle Details]
+    E -->|Remove Vehicle| I[Select Vehicle to Remove]
+
+    F --> J[Send Add Driver Request]
+    G --> K[Send Remove Driver Request]
+    H --> L[Send Add Vehicle Request]
+    I --> M[Send Remove Vehicle Request]
+
+    J --> N{Server Validates Request}
+    K --> N
+    L --> N
+    M --> N
+
+    N -->|Valid Request| O[Update Database]
+    N -->|Invalid Request| P[Display Error Message]
+
+    O --> Q[Display Success Message]
+    P --> Q

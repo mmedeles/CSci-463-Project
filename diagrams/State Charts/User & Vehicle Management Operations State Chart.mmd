@@ -1,0 +1,29 @@
+stateDiagram-v2
+    [*] --> Idle : User Accesses Application
+    Idle --> Authenticating : User Authentication
+    Authenticating --> Authenticated : Credentials Valid
+    Authenticating --> Error : Credentials Invalid
+    Error --> Idle : Display Error Message
+
+    Authenticated --> SettingsMenu : Access User Settings
+    SettingsMenu --> AddDriver : Add New Driver Selected
+    SettingsMenu --> RemoveDriver : Remove Driver Selected
+    SettingsMenu --> AddVehicle : Add New Vehicle Selected
+    SettingsMenu --> RemoveVehicle : Remove Vehicle Selected
+
+    AddDriver --> InputDriverDetails : Input Driver Details
+    RemoveDriver --> SelectDriver : Select Driver to Remove
+    AddVehicle --> InputVehicleDetails : Input Vehicle Details
+    RemoveVehicle --> SelectVehicle : Select Vehicle to Remove
+
+    InputDriverDetails --> ProcessingRequest : Send Add Driver Request
+    SelectDriver --> ProcessingRequest : Send Remove Driver Request
+    InputVehicleDetails --> ProcessingRequest : Send Add Vehicle Request
+    SelectVehicle --> ProcessingRequest : Send Remove Vehicle Request
+
+    ProcessingRequest --> ValidRequest : Request Valid
+    ProcessingRequest --> Error : Request Invalid
+
+    ValidRequest --> DatabaseUpdate : Update Database
+    DatabaseUpdate --> Success : Display Success Message
+    Error --> Idle : Display Error Message

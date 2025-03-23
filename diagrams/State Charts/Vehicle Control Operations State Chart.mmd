@@ -1,0 +1,26 @@
+stateDiagram-v2
+    [*] --> Idle : User Accesses Application
+    Idle --> Authenticating : User Authentication
+    Authenticating --> Authenticated : Credentials Valid
+    Authenticating --> Error : Credentials Invalid
+    Error --> Idle : Display Error Message
+
+    Authenticated --> VehicleSelection : Select Vehicle
+    VehicleSelection --> OperationSelection : Vehicle Selected
+
+    OperationSelection --> StartingEngine : Start Engine Command
+    OperationSelection --> StoppingEngine : Stop Engine Command
+    OperationSelection --> LockingVehicle : Lock Vehicle Command
+    OperationSelection --> UnlockingVehicle : Unlock Vehicle Command
+
+    StartingEngine --> Processing : Send Start Engine Request
+    StoppingEngine --> Processing : Send Stop Engine Request
+    LockingVehicle --> Processing : Send Lock Request
+    UnlockingVehicle --> Processing : Send Unlock Request
+
+    Processing --> ValidRequest : Request Valid
+    Processing --> Error : Request Invalid
+
+    ValidRequest --> VehicleStatusUpdate : Update Vehicle Status
+    VehicleStatusUpdate --> Success : Display Success Message
+    Error --> Idle : Display Error Message
