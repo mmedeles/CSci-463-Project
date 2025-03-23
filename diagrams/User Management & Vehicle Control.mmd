@@ -1,0 +1,22 @@
+flowchart TD
+    A[User Accesses Application] --> B{User Authentication}
+    B -->|Valid Credentials| C[Select Vehicle]
+    B -->|Invalid Credentials| D[Display Error Message]
+
+    C --> E{Select Operation}
+    E -->|Start Engine| F[Send Start Engine Request]
+    E -->|Stop Engine| G[Send Stop Engine Request]
+    E -->|Lock Vehicle| H[Send Lock Request]
+    E -->|Unlock Vehicle| I[Send Unlock Request]
+
+    F --> J{Server Receives Request}
+    G --> J
+    H --> J
+    I --> J
+
+    J -->|Request Valid| K[Execute Command]
+    J -->|Request Invalid| L[Display Error Message]
+
+    K --> M[Update Vehicle Status]
+    M --> N[Display Success Message]
+    L --> N
