@@ -76,7 +76,7 @@ composer install                 # Install Symfony packages
 
 ---
 
-##  4. Run the Full App
+##  4. Run the Full Application
 
 1. Ensure both frontend (`ng serve`) and backend (`symfony serve`) are running
 2. Go to http://localhost:4200

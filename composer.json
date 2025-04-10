@@ -1,0 +1,7 @@
+{
+    "require": {
+        "symfony/orm-pack": "^2.4",
+        "symfony/http-foundation": "^7.2",
+        "symfony/framework-bundle": "^7.2"
+    }
+}

@@ -1,0 +1,19 @@
+# Node / Angular
+client/node_modules/
+client/.angular/
+
+# Symfony / PHP
+server/vendor/
+server/var/
+server/.env.local
+server/.env.*.local
+
+# OS / Editor / Misc
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+*.swp
+*.bak
+*.tmp
