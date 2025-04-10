@@ -1,0 +1,14 @@
+<div style="padding: 2rem;">
+  <h2>Backend Status Check</h2>
+  <p><strong>Status:</strong> {{ status }}</p>
+  <p><strong>Timestamp:</strong> {{ timestamp }}</p>
+
+  <hr>
+  <h3>Counter Test</h3>
+  <button (click)="increment()">Increment Counter</button>
+
+  <div *ngIf="counter !== null">
+    <p><strong>Counter Value:</strong> {{ counter }}</p>
+    <p><strong>Last Updated:</strong> {{ counterTimestamp }}</p>
+  </div>
+</div>
