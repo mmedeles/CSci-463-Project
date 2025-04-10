@@ -1,0 +1,14 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+
+    session:
+        enabled: true
+        handler_id: null            # Use default PHP file-based storage
+        cookie_secure: auto
+        cookie_samesite: lax
+        cookie_lifetime: 0         # Session expires on browser close
+        storage_factory_id: session.storage.factory.native
+        name: 'APPSESSID'
+
+    #esi: true
+    #fragments: true
