@@ -1,6 +1,6 @@
-# 🚀 CSci-463-Project Setup Guide (For Teammates)
+# CSci-463-Project Setup Guide (For Teammates)
 
-## 🎯 Project Overview
+## Project Overview
 This project is a full-stack web application built with:
 
 - **Frontend:** Angular (TypeScript)
@@ -9,9 +9,9 @@ This project is a full-stack web application built with:
 
 ---
 
-## 🧰 Prerequisites
+## Prerequisites
 
-### ✅ Required Software
+### Required Software
 
 | Tool            | Version Recommended | Notes |
 |-----------------|---------------------|-------|
@@ -24,18 +24,18 @@ This project is a full-stack web application built with:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 CSci-463-Project/
 ├── client/               # Angular frontend
 ├── server/               # Symfony backend
-└── README.md             # This file
+└── Setup Guide.md             
 ```
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
