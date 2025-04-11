@@ -55,23 +55,38 @@ class AuthController extends AbstractController
         ]);
     }
 
-
-    #[Route('/api/change-password', name: 'api_change_password', methods: ['PATCH'])]
-    public function changePassword(Request $request, SessionInterface $session, EntityManagerInterface $em, UserPasswordHasherInterface $hasher, UserRepository $userRepo): JsonResponse
-    {
+    #[Route('/api/change-password', name: 'api_change_password', methods: ['PATCH', 'OPTIONS'])]
+    public function changePassword(
+        Request $request,
+        SessionInterface $session,
+        EntityManagerInterface $em,
+        UserPasswordHasherInterface $hasher,
+        UserRepository $userRepo
+    ): JsonResponse {
         $userId = $session->get('user_id');
+
         if (!$userId) {
             return new JsonResponse(['error' => 'Not authenticated'], Response::HTTP_UNAUTHORIZED);
         }
 
-        $user = $userRepo->find($userId);
         $data = json_decode($request->getContent(), true);
 
+        // Validate data
+        if (!$data || !isset($data['new_password'])) {
+            return new JsonResponse(['error' => 'Invalid or missing password field'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $user = $userRepo->find($userId);
+        if (!$user) {
+            return new JsonResponse(['error' => 'User not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        // Hash and set new password
         $newPassword = $hasher->hashPassword($user, $data['new_password']);
         $user->setPassword($newPassword);
         $em->flush();
 
-        return new JsonResponse(['message' => 'Password updated']);
+        return new JsonResponse(['message' => 'Password updated ✅']);
     }
 
     #[Route('/api/delete-account', name: 'api_delete_account', methods: ['DELETE'])]

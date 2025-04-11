@@ -3,7 +3,7 @@ nelmio_cors:
         allow_origin: ['http://localhost:4200']
         allow_credentials: true  # ✅ allows cookies/session headers
         allow_headers: ['Content-Type', 'Authorization']
-        allow_methods: ['GET', 'POST', 'OPTIONS']
+        allow_methods: ['GET', 'POST', 'OPTIONS', 'PATCH']
         expose_headers: ['Content-Type', 'Authorization']
         max_age: 3600
     paths:

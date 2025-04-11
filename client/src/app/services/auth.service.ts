@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,12 @@ export class AuthService {
 
   logout() {
     return this.http.post<any>(`${this.apiUrl}/logout`, {}, { withCredentials: true });
+  }
+  changePassword(newPassword: string) {
+    return this.http.patch(`${this.apiUrl}/change-password`,
+        { new_password: newPassword },
+        { withCredentials: true }
+    );
   }
 
 }
