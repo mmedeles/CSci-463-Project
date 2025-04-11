@@ -1,1 +1,11 @@
-<p>profile works!</p>
+<h1>My Profile</h1>
+
+<p>
+  <i class="fa fa-user"></i> Logged in as: <strong>{{ username }}</strong>
+</p>
+
+<button (click)="logout()">Logout</button>
+<br /><br />
+<button (click)="deleteAccount()" style="color: white; background-color: darkred; border: none; padding: 0.5rem 1rem;">
+  Delete Account
+</button>

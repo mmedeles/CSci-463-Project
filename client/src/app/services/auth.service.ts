@@ -34,7 +34,9 @@ export class AuthService {
         { withCredentials: true }
     );
   }
-
+  deleteAccount(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete-account`, { withCredentials: true });
+  }
 }
 
 

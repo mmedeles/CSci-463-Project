@@ -1,33 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import {NgIf} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [
-    NgIf
-  ],
-  template: `
-    <h2>My Profile</h2>
-    <p *ngIf="username">👤 Logged in as: <strong>{{ username }}</strong></p>
-    <p *ngIf="!username">❌ Not logged in</p>
-    <button (click)="logout()">Logout</button>
-  `
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
-  username: string | null = null;
+export class ProfileComponent implements OnInit {
+  username: string = '';
 
-  constructor(private auth: AuthService) {
-    this.auth.getProfile().subscribe({
-      next: data => this.username = data.username,
-      error: () => this.username = null
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.authService.getProfile().subscribe({
+      next: (data) => {
+        this.username = data.username;
+      },
+      error: () => {
+        this.router.navigate(['/login']);
+      }
     });
   }
 
   logout(): void {
-    this.auth.logout().subscribe(() => {
-      this.username = null;
-      alert('Logged out ✅');
+    this.authService.logout().subscribe({
+      next: () => {
+        alert('Logged out ✅');
+        this.router.navigate(['/login']);
+      },
+      error: () => {
+        alert('Logout failed ❌');
+      }
     });
+  }
+
+  deleteAccount(): void {
+    if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+      this.authService.deleteAccount().subscribe({
+        next: () => {
+          alert('Account deleted ✅');
+          this.router.navigate(['/login']);
+        },
+        error: () => {
+          alert('Account deletion failed ❌');
+        }
+      });
+    }
   }
 }
