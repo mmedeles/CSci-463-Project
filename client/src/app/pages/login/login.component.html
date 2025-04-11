@@ -1,12 +1,17 @@
 <h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="submit()">
-    <label>Username:</label>
-    <input type="text" formControlName="username" />
+<form (submit)="login()">
+    <label>
+        Username:
+        <input type="text" [(ngModel)]="username" name="username" required />
+    </label><br>
 
-    <label>Password:</label>
-    <input type="password" formControlName="password" />
+    <label>
+        Password:
+        <input type="password" [(ngModel)]="password" name="password" required />
+    </label><br>
 
     <button type="submit">Login</button>
 </form>
 
-<p>{{ message }}</p>
+<div *ngIf="success" style="color: green;">{{ message }}</div>
+<div *ngIf="!success && message" style="color: red;">{{ message }}</div>

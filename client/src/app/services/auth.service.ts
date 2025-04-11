@@ -10,16 +10,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
-    return this.http.post<any>(
-        `${this.apiUrl}/login`,
-        { username, password },
-        { withCredentials: true }
-    );
+  login(credentials: { username: string; password: string }) {
+    return this.http.post(`${this.apiUrl}/login`, credentials, {
+      withCredentials: true
+    });
   }
-  register(username: string, password: string) {
-    return this.http.post(`${this.apiUrl}/register`, { username, password }, { withCredentials: true });
+
+
+  register(payload: { username: string; password: string }) {
+    return this.http.post(`${this.apiUrl}/register`, payload, {
+      withCredentials: true
+    });
   }
+
+
 
   getProfile() {
     return this.http.get<any>(`${this.apiUrl}/profile`, { withCredentials: true });
