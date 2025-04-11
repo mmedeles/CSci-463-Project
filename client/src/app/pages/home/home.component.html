@@ -1,14 +1,10 @@
-<div style="padding: 2rem;">
-  <h2>Backend Status Check</h2>
-  <p><strong>Status:</strong> {{ status }}</p>
-  <p><strong>Timestamp:</strong> {{ timestamp }}</p>
+<div class="home-container">
+  <h1>Welcome Back 👋</h1>
+  <p class="subtitle">What would you like to do today?</p>
 
-  <hr>
-  <h3>Counter Test</h3>
-  <button (click)="increment()">Increment Counter</button>
-
-  <div *ngIf="counter !== null">
-    <p><strong>Counter Value:</strong> {{ counter }}</p>
-    <p><strong>Last Updated:</strong> {{ counterTimestamp }}</p>
+  <div class="button-group">
+    <button routerLink="/profile">View Profile</button>
+    <button routerLink="/change-password">Change Password</button>
+    <button (click)="logout()">Logout</button>
   </div>
 </div>
