@@ -16,9 +16,18 @@ export class AuthService {
         { withCredentials: true }
     );
   }
-
-
   register(username: string, password: string) {
     return this.http.post(`${this.apiUrl}/register`, { username, password }, { withCredentials: true });
   }
+
+  getProfile() {
+    return this.http.get<any>(`${this.apiUrl}/profile`, { withCredentials: true });
+  }
+
+  logout() {
+    return this.http.post<any>(`${this.apiUrl}/logout`, {}, { withCredentials: true });
+  }
+
 }
+
+

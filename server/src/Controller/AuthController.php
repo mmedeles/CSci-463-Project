@@ -90,4 +90,32 @@ class AuthController extends AbstractController
 
         return new JsonResponse(['message' => 'Account deleted']);
     }
+
+    #[Route('/api/profile', name: 'api_profile', methods: ['GET'])]
+    public function profile(Request $request, UserRepository $userRepo): JsonResponse
+    {
+        $session = $request->getSession();
+        $userId = $session->get('user_id');
+
+        if (!$userId) {
+            return new JsonResponse(['message' => 'Not authenticated'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $user = $userRepo->find($userId);
+
+        return new JsonResponse([
+            'username' => $user->getUsername(),
+            'roles' => $user->getRoles()
+        ]);
+    }
+
+    #[Route('/api/logout', name: 'api_logout', methods: ['POST'])]
+    public function logout(Request $request): JsonResponse
+    {
+        $request->getSession()->invalidate();
+
+        return new JsonResponse(['message' => 'Logged out successfully ✅']);
+    }
+
+
 }
