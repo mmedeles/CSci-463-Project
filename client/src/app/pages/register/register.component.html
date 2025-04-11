@@ -1,0 +1,13 @@
+<h2>Register</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+  <label>Username:</label>
+  <input type="text" formControlName="username" />
+
+  <label>Password:</label>
+  <input type="password" formControlName="password" />
+
+  <button type="submit">Register</button>
+</form>
+
+<p>{{ message }}</p>

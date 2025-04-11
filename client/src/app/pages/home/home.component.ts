@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
         this.counterTimestamp = res.timestamp;
       },
       error: (err) => {
-        console.error('Increment failed:', err); // ✅ Debug
+        console.error(err); // ✅ Debug
         this.counter = -1;
         this.counterTimestamp = '';
       }
