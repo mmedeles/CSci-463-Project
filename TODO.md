@@ -2,24 +2,33 @@
 
 ---
 
-## 🔹 Phase 2 – Interface Development & UX Design
+## Phase 2 – Interface Development & UX Design
 
-🖼️ **Objective**: Build user interface and finalize diagrams and structure.
+**Objective**: Build user interface and finalize diagrams and structure.
 
-### ✅ Tasks:
+### Tasks:
 
 - Build UI sketches and wireframes (updated from CSci 363 where applicable)
 - Implement working Angular components (e.g., Home view, buttons)
 - Build and refine navigation/routes in Angular
 - Connect UI to backend endpoints with dynamic content
+1. App Settings
+2. About
+3. Vehicle Settings
+4. Driver Management
+5. Profile Settings
+6. Vehicle Home
+7. Vehicle Geolocation & History
+8. Notifications
+9. Vehicle Metrics
 
-### 📐 Diagram Updates:
+### Diagram Updates:
 
 - Class diagrams
 - Activity diagrams
 - State charts
 
-### 📄 Report II Deliverables:
+### Report II Deliverables:
 
 - UML diagrams
 - UI interface samples
@@ -28,18 +37,18 @@
 
 ---
 
-## 🔹 Phase 3 – Core Feature Implementation & Data Persistence
+## Phase 3 – Core Feature Implementation & Data Persistence
 
-💾 **Objective**: Enable CRUD functionality with backend database support.
+**Objective**: Enable CRUD functionality with backend database support.
 
-### ✅ Tasks:
+### Tasks:
 
 - Install Doctrine ORM and configure MariaDB with HeidiSQL
 - Update `.env.local` with `DATABASE_URL`
 - Create Entity classes (e.g., User, Session, Submission)
 - Set up migrations and sync with DB
 
-### 🔄 Feature Implementation:
+### Feature Implementation:
 
 - Form submissions
 - Backend routes to persist user actions
@@ -48,11 +57,11 @@
 
 ---
 
-## 🔹 Phase 4 – Testing, Refinement & Final Presentation
+## Phase 4 – Testing, Refinement & Final Presentation
 
-✅ **Objective**: Finalize and polish the application for delivery.
+**Objective**: Finalize and polish the application for delivery.
 
-### ✅ Tasks:
+### Tasks:
 
 - Conduct functional and user testing
 - Review project against requirements checklist
