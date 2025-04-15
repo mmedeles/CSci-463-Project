@@ -1,4 +1,4 @@
-## 📦 Server Setup (Important for Teammates)
+## Server Setup (Important for Teammates)
 
 If you're having issues starting the Symfony backend (e.g., missing `public/index.php`), download the provided zipped `server/` directory from the team lead.
 
@@ -9,3 +9,13 @@ If you're having issues starting the Symfony backend (e.g., missing `public/inde
    - Run `composer install`
    - Start server: *Built-in-Web-Server*
 4. Visit [http://localhost:8000](http://localhost:8000)
+
+## Making new pages
+1. Use this command to setup the files needed for new pages
+   
+   ```ng generate component pages/{page_name}```
+   2. component.html
+   3. component.scss
+   4. component.ts
+2. Add the route (app.module.ts)
+3. Update the component.ts to navigate to correctly
