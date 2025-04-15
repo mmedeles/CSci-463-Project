@@ -19,3 +19,6 @@ If you're having issues starting the Symfony backend (e.g., missing `public/inde
    4. component.ts
 2. Add the route (app.module.ts)
 3. Update the component.ts to navigate to correctly
+4. Import appropriate modules, routes, pages
+4. Add ts functionality (.ts)
+5. Add Styling (.scss)
