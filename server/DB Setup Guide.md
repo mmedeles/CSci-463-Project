@@ -31,8 +31,8 @@ We what did:
 1. Open **HeidiSQL**
 2. Connect to your local MariaDB instance (localhost, port 3306)
 3. Click **"New → Create Database"**
-    - Name: `csci463_project`
-    - Collation: `utf8mb4_general_ci`
+   - Name: `csci463_project`
+   - Collation: `utf8mb4_general_ci`
 
 ---
 
