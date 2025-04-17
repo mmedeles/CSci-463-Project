@@ -46,7 +46,7 @@ class AuthController extends AbstractController
             return new JsonResponse(['message' => 'Invalid credentials ❌'], Response::HTTP_UNAUTHORIZED);
         }
 
-        // Save user ID in session
+        // This saves user ID in session
         $request->getSession()->set('user_id', $user->getId());
 
         return new JsonResponse([
@@ -81,7 +81,7 @@ class AuthController extends AbstractController
             return new JsonResponse(['error' => 'User not found'], Response::HTTP_NOT_FOUND);
         }
 
-        // Hash and set new password
+        // Basic hashing and set new password
         $newPassword = $hasher->hashPassword($user, $data['new_password']);
         $user->setPassword($newPassword);
         $em->flush();

@@ -27,14 +27,6 @@
 - Class diagrams
 - Activity diagrams
 - State charts
-
-### Report II Deliverables:
-
-- UML diagrams
-- UI interface samples
-- Implementation description
-- Updated Gantt chart
-
 ---
 
 ## Phase 3 – Core Feature Implementation & Data Persistence
