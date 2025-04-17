@@ -22,9 +22,10 @@ This project is part of the CSci 463 Software Engineering course, focusing on th
 ```
 CSci-463-Project/
 │── 📂 docs/                # Project documentation and reports
-│── 📂 src/                 # Source code for the application
-│── 📂 diagrams/            # UML, Activity, State, and Class Diagrams
-│── 📂 tests/               # Test cases and results
+    │
+    ── 📂 diagrams/         # UML, Activity, State, and Class Diagrams
+│── 📂 client/              # Frontend
+│── 📂 server/              # Backend
 │── 📝 README.md            # Project description and guidelines
 │── 📝 Project Report I.pdf        # First project report deliverables
 │── 📝 Project Report II.pdf         # Second project report deliverables
@@ -42,18 +43,18 @@ CSci-463-Project/
 - ✅ **Statement of Next Steps**
 
 ### **📝 Report II Deliverables**
-- 🔄 **Revised Interface Drawing**
-- 🔄 **Use Case Descriptions (2 Use Cases)**
-- 🔄 **Updated Class Diagram (High-Level Design)**
-- 🔄 **Activity Diagrams (2 Diagrams)**
-- 🔄 **State Chart (2 Diagrams)**
-- 🔄 **Statement of Issues & Resolutions**
-- 🔄 **Statement of Next Steps**
+- ✅ **Revised Interface Drawing**
+- ✅ **Use Case Descriptions (2 Use Cases)**
+- ✅ **Updated Class Diagram (High-Level Design)**
+- ✅ **Activity Diagrams (2 Diagrams)**
+- ✅ **State Chart (2 Diagrams)**
+- ✅ **Statement of Issues & Resolutions**
+- ✅ **Statement of Next Steps**
 
 ## 🛠️ Development Progress
 ### **Current Tasks**
 - ✅ Project Repository Setup
-- 🔄 Backend Selection (e.g.,Firebase, SQLlite, PHP Symfony)
+- ✅ Backend Selection (e.g.,Firebase, SQLlite, PHP Symfony)
 - 🔄 UI Development (Mockups & Implementation)
 - 🔄 Feature Development (Start/Stop, Lock/Unlock, Alarm System)
 - 🔄 Functional Testing & Debugging
@@ -64,8 +65,7 @@ CSci-463-Project/
 - 🎤 **Final Project Presentation**
 
 ## 🏗️ Technologies Used
-- **Programming Language:** (TBD)
-- **Database:** (TBD)
-- **Frontend Framework:** (TBD)
+- **Framework(s):** Symfony, Angular 
+- **Database:** MariaDB/HeidiSQL
 - **Diagramming Tools:** Mermaid, PlantUML, draw.io
 - **Version Control:** GitHub

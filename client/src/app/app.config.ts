@@ -8,7 +8,10 @@ import {bootstrapApplication} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes)
+  ]
 };
 
 bootstrapApplication(AppComponent, {
