@@ -17,4 +17,8 @@ export class SettingsComponent {
     this.router.navigate(['/profile']);
   }
 
+  goToDriverManagement() {
+    this.router.navigate(['/driver-management'])
+  }
+
 }
