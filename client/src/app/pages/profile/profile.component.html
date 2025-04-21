@@ -1,11 +1,12 @@
-<h1>My Profile</h1>
+<div class="profile-container">
+  <div class="profile-card">
+    <h2>👤 My Profile</h2>
+    <p class="username-label">Logged in as: <strong>{{ username }}</strong></p>
 
-<p>
-  <i class="fa fa-user"></i> Logged in as: <strong>{{ username }}</strong>
-</p>
-
-<button (click)="logout()">Logout</button>
-<br /><br />
-<button (click)="deleteAccount()" style="color: white; background-color: darkred; border: none; padding: 0.5rem 1rem;">
-  Delete Account
-</button>
+    <div class="button-group">
+      <button class="btn primary" routerLink="/change-password">Change Password</button>
+      <button class="btn warning" (click)="logout()">Logout</button>
+      <button class="btn danger" (click)="deleteAccount()">Delete Account</button>
+    </div>
+  </div>
+</div>
