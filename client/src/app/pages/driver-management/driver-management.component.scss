@@ -1,0 +1,67 @@
+.driver-management-container {
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .driver-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .driver-card {
+    background: #f7f7f7;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .driver-info {
+      .email {
+        font-size: 0.8rem;
+        color: #666;
+      }
+    }
+
+    .delete {
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: red;
+    }
+  }
+
+  .add-driver-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+      padding: 0.5rem;
+      border-radius: 0.4rem;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.5rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 0.4rem;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
+}
