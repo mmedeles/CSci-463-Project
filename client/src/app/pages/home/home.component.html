@@ -1,10 +1,30 @@
-<div class="home-container">
-  <h1>Welcome Back </h1>
-  <p class="subtitle">What would you like to do today?</p>
+<app-header></app-header>
 
-  <div class="button-group">
-    <button routerLink="/profile">View Profile</button>
-    <button routerLink="/change-password">Change Password</button>
-    <button (click)="logout()">Logout</button>
+<div class="mobile-container">
+  <div class="home-wrapper">
+    <h2 class="welcome-text">Welcome back,<br />{{ username }}</h2>
+
+    <img src="images/car.png" alt="Car image" class="car-image" />
+
+    <button class="start-button">
+      <img src="images/start_button.png" alt="Power Icon" class="power-icon" />
+    </button>
+
+    <div class="status-card">
+      <div class="label">VEHICLE STATUS</div>
+      <div class="value">65°F</div>
+    </div>
+
+    <div class="status-card">
+      <div class="label">LOCKS</div>
+      <div class="value">Locked</div>
+    </div>
+
+    <div class="status-card">
+      <div class="label">LOCATION</div>
+      <div class="value">1234 Elm St.</div>
+    </div>
   </div>
 </div>
+
+<app-footer></app-footer>

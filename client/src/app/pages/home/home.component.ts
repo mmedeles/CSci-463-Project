@@ -1,22 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import {Router, RouterLink} from '@angular/router';
+import { Router } from '@angular/router';
+import {HeaderComponent} from '../header/header.component';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   imports: [
-    RouterLink
+    HeaderComponent,
+    FooterComponent
   ],
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  username: string = '';
+
   constructor(private authService: AuthService, private router: Router) {}
 
-  logout(): void {
-    this.authService.logout().subscribe({
-      next: () => this.router.navigate(['/login']),
-      error: () => alert('Logout failed ❌')
+  ngOnInit(): void {
+    this.authService.getProfile().subscribe({
+      next: (data) => {
+        this.username = data.username;
+      },
+      error: () => {
+        this.router.navigate(['/login']);
+      }
     });
   }
 }
