@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 0;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  height: 60px;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: #000;
+    text-align: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 2px;
+    }
+
+    span {
+      font-size: 10px;
+    }
+  }
+}

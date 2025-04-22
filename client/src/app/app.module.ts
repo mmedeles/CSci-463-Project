@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -43,6 +45,8 @@ const routes: Routes = [
     FormsModule,
 
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
     WelcomeComponent,
     HomeComponent,
     LoginComponent,
