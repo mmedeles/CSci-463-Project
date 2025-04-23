@@ -20,12 +20,38 @@
   <!-- Sidebar Navigation -->
   <div class="sidebar" [class.open]="isOpen">
     <ul>
-      <li routerLink="/profile">My Profile</li>
-      <li routerLink="/driver-management">Driver Management</li>
-      <li routerLink="/vehicle-settings">Vehicle Settings</li>
-      <li routerLink="/notifications">Notifications</li>
-      <li routerLink="/about">About</li>
+      <li
+        [class.active]="isActive('/profile')"
+        (click)="handleClick('/profile')"
+      >
+        My Profile
+      </li>
+      <li
+        [class.active]="isActive('/home')"
+        (click)="handleClick('/home')"
+      >
+        Home
+      </li>
+      <li
+        [class.active]="isActive('/driver-management')"
+        (click)="handleClick('/driver-management')"
+      >
+        Driver Management
+      </li>
+      <li
+        [class.active]="isActive('/vehicle-settings')"
+        (click)="handleClick('/vehicle-settings')"
+      >
+        Vehicle Settings
+      </li>
+      <li
+        [class.active]="isActive('/notifications')"
+        (click)="handleClick('/notifications')"
+      >
+        Notifications
+      </li>
     </ul>
   </div>
+
   <div class="overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>
 </div>
