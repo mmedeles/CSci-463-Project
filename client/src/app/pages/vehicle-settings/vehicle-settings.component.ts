@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import {HeaderComponent} from '../header/header.component';
 
 @Component({
   selector: 'app-vehicle-settings',
-  imports: [],
   templateUrl: './vehicle-settings.component.html',
-  styleUrl: './vehicle-settings.component.scss'
+  imports: [
+    HeaderComponent
+  ],
+  styleUrls: ['./vehicle-settings.component.scss']
 })
-export class VehicleSettingsComponent {
-
-}
+export class VehicleSettingsComponent {}

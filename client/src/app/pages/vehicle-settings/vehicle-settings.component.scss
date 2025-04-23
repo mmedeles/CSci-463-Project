@@ -1,0 +1,56 @@
+.vehicle-settings-container {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+/* Header */
+.vehicle-banner {
+  background-color: #eaeaea;
+  text-align: center;
+  border-radius: 8px;
+  padding: 1rem;
+
+  .vehicle-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .vehicle-image {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Tiles */
+.tile {
+  background-color: #000;
+  border-radius: 12px;
+  padding: 1rem 0.25rem;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem;
+    filter: brightness(0) invert(1);
+  }
+}
