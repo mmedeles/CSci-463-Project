@@ -1,5 +1,31 @@
-<div class="header">
-  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Menu" class="icon menu-icon" />
-  <h1 class="title">Remote Start</h1>
-  <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile" class="icon profile-icon" />
+<div class="mobile-container">
+  <div class="header">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png"
+      alt="Menu"
+      class="icon menu-icon"
+      (click)="toggleMenu()"
+    />
+
+    <h1 class="title">Remote Start</h1>
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+      alt="Profile"
+      class="icon profile-icon"
+      (click)="goToProfile()"
+    />
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" [class.open]="isOpen">
+    <ul>
+      <li routerLink="/profile">My Profile</li>
+      <li routerLink="/driver-management">Driver Management</li>
+      <li routerLink="/vehicle-settings">Vehicle Settings</li>
+      <li routerLink="/notifications">Notifications</li>
+      <li routerLink="/about">About</li>
+    </ul>
+  </div>
+  <div class="overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>
 </div>

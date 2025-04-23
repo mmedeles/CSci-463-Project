@@ -1,22 +1,26 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  imports: [
+    RouterLink,
+    NgIf
+  ],
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  isOpen: boolean = false;
 
   constructor(private router: Router) {}
 
-  goToProfile(): void {
-    this.router.navigate(['/profile']);
+  toggleMenu(): void {
+    this.isOpen = !this.isOpen;
   }
 
-  onMenuClick(): void {
-    // You can open a sidebar or emit an event here
-    console.log('Menu clicked');
-    // Example: this.menuService.toggleSidebar();
+  goToProfile(): void {
+    this.router.navigate(['/profile']);
   }
 }
