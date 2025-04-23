@@ -1,12 +1,24 @@
+<app-header></app-header>
 <div class="profile-container">
-  <div class="profile-card">
-    <h2>👤 My Profile</h2>
-    <p class="username-label">Logged in as: <strong>{{ username }}</strong></p>
+  <div class="profile-header">
+    <label class="avatar-wrapper">
+      <img [src]="avatarUrl" alt="User Avatar" class="avatar" />
+      <input type="file" accept="image/*" (change)="onAvatarChange($event)" hidden />
+    </label>
 
-    <div class="button-group">
-      <button class="btn primary" routerLink="/change-password">Change Password</button>
-      <button class="btn warning" (click)="logout()">Logout</button>
-      <button class="btn danger" (click)="deleteAccount()">Delete Account</button>
+    <div class="user-info">
+      <div class="username-row">
+        <span class="username">{{ username }}</span>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png"
+          alt="Edit Name"
+          class="edit-icon"
+          (click)="editName()" />
+      </div>
     </div>
   </div>
+
+  <div class="profile-section" routerLink="/change-password">Change Password</div>
+  <div class="profile-section" (click)="logout()">Logout</div>
+  <div class="profile-section" (click)="deleteAccount()">Delete Account</div>
 </div>
