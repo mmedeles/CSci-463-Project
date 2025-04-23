@@ -1,19 +1,16 @@
-<div class="driver-management-container">
-  <h2>👥 Driver Management</h2>
+<app-header></app-header>
+<div class="mobile-page">
+  <h2 class="section-title">Driver Management</h2>
 
-  <div class="driver-list">
-    <div *ngFor="let driver of drivers" class="driver-card">
-      <div class="driver-info">
-        <strong>{{ driver.name }}</strong><br />
-        <span class="email">{{ driver.email }}</span>
-      </div>
-      <button class="delete" (click)="deleteDriver(driver)">🗑️</button>
+  <div class="driver-card" *ngFor="let driver of drivers">
+    <div class="driver-info">
+      <p class="driver-name">{{ driver.name }}</p>
+      <p class="driver-email">{{ driver.email }}</p>
     </div>
   </div>
 
-  <form (ngSubmit)="addDriver()" class="add-driver-form">
-    <input type="text" placeholder="Driver Name" [(ngModel)]="newDriver.name" name="name" required />
-    <input type="email" placeholder="Driver Email" [(ngModel)]="newDriver.email" name="email" required />
-    <button type="submit">➕ Add New Driver</button>
-  </form>
+  <div class="add-driver" (click)="addDriver()">
+    <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Add" />
+    <span>Add New Driver</span>
+  </div>
 </div>
