@@ -17,6 +17,11 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import {SettingsComponent} from './pages/settings/settings.component';
 import {DriverManagementComponent} from './pages/driver-management/driver-management.component';
 import {VehicleSettingsComponent} from './pages/vehicle-settings/vehicle-settings.component';
+import {MoreComponent} from './pages/more/more.component';
+import {AboutComponent} from './pages/about/about.component';
+import {HelpCenterComponent} from './pages/help-center/help-center.component';
+import {SupportComponent} from './pages/support/support.component';
+import {NotificationsComponent} from './pages/notifications/notifications.component';
 
 
 
@@ -29,7 +34,12 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'driver-management', component: DriverManagementComponent },
-  { path: 'vehicle-settings', component: VehicleSettingsComponent }
+  { path: 'vehicle-settings', component: VehicleSettingsComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'more', component: MoreComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'help-center', component: HelpCenterComponent },
+  { path: 'support', component: SupportComponent },
 
 ];
 
@@ -54,7 +64,12 @@ const routes: Routes = [
     ChangePasswordComponent,
     SettingsComponent,
     DriverManagementComponent,
-    VehicleSettingsComponent
+    VehicleSettingsComponent,
+    NotificationsComponent,
+    MoreComponent,
+    AboutComponent,
+    HelpCenterComponent,
+    SupportComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
