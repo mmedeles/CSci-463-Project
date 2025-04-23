@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {HeaderComponent} from '../header/header.component';
 
 @Component({
   selector: 'app-more',
   imports: [
-    RouterLink
+    RouterLink,
+    HeaderComponent
   ],
   templateUrl: './more.component.html',
   styleUrl: './more.component.scss'
