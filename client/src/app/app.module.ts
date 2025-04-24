@@ -26,7 +26,8 @@ import {NotificationsComponent} from './pages/notifications/notifications.compon
 
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
@@ -40,8 +41,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'help-center', component: HelpCenterComponent },
   { path: 'support', component: SupportComponent },
-
 ];
+
 
 @NgModule({
   declarations: [
