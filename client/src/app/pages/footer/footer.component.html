@@ -1,17 +1,36 @@
 <nav class="footer">
-  <div class="footer-item">
+  <div
+    class="footer-item"
+    routerLink="/home"
+    [ngClass]="{ active: router.url === '/home' }"
+  >
     <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" />
     <span>Home</span>
   </div>
-  <div class="footer-item" routerLink="/vehicle-settings">
+
+  <div
+    class="footer-item"
+    routerLink="/vehicle-settings"
+    [ngClass]="{ active: router.url === '/vehicle-settings' }"
+  >
     <img src="https://cdn-icons-png.flaticon.com/512/84/84380.png" alt="Controls" />
     <span>Vehicle Controls</span>
   </div>
-  <div class="footer-item">
+
+  <div
+    class="footer-item"
+    routerLink="/notifications"
+    [ngClass]="{ active: router.url === '/notifications' }"
+  >
     <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Location" />
     <span>Location</span>
   </div>
-  <div class="footer-item" routerLink="/more">
+
+  <div
+    class="footer-item"
+    routerLink="/more"
+    [ngClass]="{ active: router.url === '/more' }"
+  >
     <img src="https://cdn-icons-png.flaticon.com/512/512/512142.png" alt="More" />
     <span>More</span>
   </div>

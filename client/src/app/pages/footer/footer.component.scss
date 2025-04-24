@@ -21,15 +21,30 @@
     font-size: 10px;
     color: #000;
     text-align: center;
+    cursor: pointer;
 
     img {
       width: 20px;
       height: 20px;
       margin-bottom: 2px;
+      filter: grayscale(100%);
+      transition: filter 0.2s;
     }
 
     span {
       font-size: 10px;
+    }
+
+    &.active {
+      color: #007bff;
+
+      img {
+        filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(623%) hue-rotate(194deg) brightness(94%) contrast(100%);
+      }
+
+      span {
+        font-weight: 600;
+      }
     }
   }
 }
