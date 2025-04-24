@@ -6,6 +6,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\VehicleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #TODO - Add Location and Geofence classes
@@ -50,9 +51,31 @@ class Vehicle
     #[ORM\Column(nullable: true)]
     private ?float $fuel = null;
 
+    #[ORM\Column]
+    private ?bool $isLocked = false;
+
+    #[ORM\Column]
+    private ?bool $isEngineOn = false;
+
+    #[ORM\Column]
+    private ?bool $isWindowOpen = false;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Location $currentLocation = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Geofence $geofence = null;
+
+    /**
+     * @var Collection<int, Notification>
+     */
+    #[ORM\OneToMany(targetEntity: Notification::class, mappedBy: 'vehicle', orphanRemoval: true)]
+    private Collection $notifications;
+
     public function __construct()
     {
         $this->drivers = new ArrayCollection();
+        $this->notifications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -183,6 +206,96 @@ class Vehicle
     public function setFuel(?float $fuel): static
     {
         $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    public function isLocked(): ?bool
+    {
+        return $this->isLocked;
+    }
+
+    public function setIsLocked(bool $isLocked): static
+    {
+        $this->isLocked = $isLocked;
+
+        return $this;
+    }
+
+    public function isEngineOn(): ?bool
+    {
+        return $this->isEngineOn;
+    }
+
+    public function setIsEngineOn(bool $isEngineOn): static
+    {
+        $this->isEngineOn = $isEngineOn;
+
+        return $this;
+    }
+
+    public function isWindowOpen(): ?bool
+    {
+        return $this->isWindowOpen;
+    }
+
+    public function setIsWindowOpen(bool $isWindowOpen): static
+    {
+        $this->isWindowOpen = $isWindowOpen;
+
+        return $this;
+    }
+
+    public function getCurrentLocation(): ?Location
+    {
+        return $this->currentLocation;
+    }
+
+    public function setCurrentLocation(?Location $currentLocation): static
+    {
+        $this->currentLocation = $currentLocation;
+
+        return $this;
+    }
+
+    public function getGeofence(): ?Geofence
+    {
+        return $this->geofence;
+    }
+
+    public function setGeofence(?Geofence $geofence): static
+    {
+        $this->geofence = $geofence;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Notification>
+     */
+    public function getNotifications(): Collection
+    {
+        return $this->notifications;
+    }
+
+    public function addNotification(Notification $notification): static
+    {
+        if (!$this->notifications->contains($notification)) {
+            $this->notifications->add($notification);
+            $notification->setVehicle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotification(Notification $notification): static
+    {
+        if ($this->notifications->removeElement($notification)) {
+            // set the owning side to null (unless already changed)
+            if ($notification->getVehicle() === $this) {
+                $notification->setVehicle(null);
+            }
+        }
 
         return $this;
     }
