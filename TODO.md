@@ -22,6 +22,13 @@
 8. Notifications
 9. Vehicle Metrics
 
+### Updates:
+- Add feature to home button to indicate if the engine is turned on or off
+- Add GeoFencing Feature
+- Add Vehicle Metrics
+- Update About, Help Center, and Support page
+- Add Notifications
+- Add vehicle settings
 ### Diagram Updates:
 
 - Class diagrams
