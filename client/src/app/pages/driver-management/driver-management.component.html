@@ -1,11 +1,22 @@
 <app-header></app-header>
+
 <div class="mobile-page">
   <h2 class="section-title">Driver Management</h2>
 
-  <div class="driver-card" *ngFor="let driver of drivers">
+  <div *ngFor="let driver of drivers" class="driver-card">
     <div class="driver-info">
-      <p class="driver-name">{{ driver.name }}</p>
-      <p class="driver-email">{{ driver.email }}</p>
+      <div class="driver-name">{{ driver.name }}</div>
+      <div class="driver-email">{{ driver.email }}</div>
+    </div>
+    <div class="action-icons">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
+           alt="Edit"
+           title="Edit"
+           (click)="editDriver(driver)" />
+      <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+           alt="Remove"
+           title="Remove"
+           (click)="removeDriver(driver)" />
     </div>
   </div>
 
@@ -14,3 +25,4 @@
     <span>Add New Driver</span>
   </div>
 </div>
+
