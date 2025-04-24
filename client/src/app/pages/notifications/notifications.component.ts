@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgForOf} from '@angular/common';
+import {HeaderComponent} from '../header/header.component';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   imports: [
     FormsModule,
-    NgForOf
+    NgForOf,
+    HeaderComponent
   ],
   styleUrls: ['./notifications.component.scss']
 })
