@@ -28,7 +28,7 @@
 - Add Vehicle Metrics
 - Update About, Help Center, and Support page
 - Add Notifications
-- Add vehicle settings
+- Add vehicle settings (Icon on Vehicle Control)
 ### Diagram Updates:
 
 - Class diagrams
