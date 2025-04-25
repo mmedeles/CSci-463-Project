@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //height: calc(100vh - 120px); // Leaves space for header and footer
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -34,19 +33,40 @@
   height: fit-content;
   margin-bottom: 0;
   margin-top: 0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.car-image.active {
+  box-shadow: 0 0 25px 5px rgba(0, 255, 0, 0.5);
+  animation: shake 0.3s infinite alternate;
+}
+
+@keyframes shake {
+  from { transform: translateX(-2px); }
+  to { transform: translateX(2px); }
 }
 
 .start-button {
-  background: none;
+  background-color: #ccc;
   border: none;
-  padding: 0;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
   margin: 0.1rem 0 0.7rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+
+  &.active {
+    background-color: #007bff;
+  }
 
   img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
+    width: 60%;
+    height: 60%;
+    //object-fit: contain;
   }
 
   &:hover {
