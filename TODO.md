@@ -24,11 +24,26 @@
 
 ### Updates:
 - Add feature to home button to indicate if the engine is turned on or off
-- Add GeoFencing Feature
-- Add Vehicle Metrics
 - Update About, Help Center, and Support page
-- Add Notifications
-- Add vehicle settings
+- Add vehicle settings (Icon on Vehicle Control)
+- Add Priority for notifications
+- System must be Wi-Fi and cellular service accessible,
+- System must display the standard mobile device service information (date, time, Wi-Fi/cellular
+  strength)
+- System must adjust for changing time zone, (OPTIONAL)
+- System must provide configuration services for either electric vehicle (EV), hybrid, or gas-fuel
+  vehicle:
+  - Adding/deleting driver, 
+  - Adding/deleting motor vehicle, 
+  - Updating application, (OPTIONAL)
+  - Updating GPS map, (OPTIONAL)
+  - Enabling/Disabling operation features, 
+  - Adding/Deleting/Modifying user information,
+- Provide daytime and nighttime operation modes. (OPTIONAL)
+- Possibly add the feature to any live changes or executed functions will reflect in the notifications feed
+
+
+
 ### Diagram Updates:
 
 - Class diagrams

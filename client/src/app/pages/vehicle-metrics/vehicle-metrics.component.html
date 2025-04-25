@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="mobile-container">
+  <div class="metrics-wrapper">
+    <div class="metric-card" *ngFor="let metric of metrics">
+      <img [src]="metric" [alt]="metric.label" class="metric-icon" />
+      <div class="metric-details">
+        <div class="metric-label">{{ metric.label }}</div>
+        <div class="metric-value">{{ metric.value }}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,36 +1,42 @@
-<app-header></app-header>>
+<app-header></app-header>
+
 <div class="vehicle-settings-container">
-  <!-- Vehicle Banner -->
   <div class="vehicle-banner">
     <span class="vehicle-title">20XX Make Model</span>
     <img src="images/car.png" alt="Vehicle" class="vehicle-image" />
   </div>
 
-  <!-- Tile Controls -->
   <div class="grid-container">
     <div class="tile">
       <img src="https://cdn-icons-png.flaticon.com/512/484/484167.png" alt="Lock" />
       <span>Lock / Unlock</span>
     </div>
+
     <div class="tile">
       <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Start" />
       <span>Start Engine</span>
     </div>
-    <div class="tile">
+
+    <a class="tile" routerLink="/vehicle-metrics">
       <img src="https://cdn-icons-png.flaticon.com/512/1828/1828915.png" alt="Metrics" />
       <span>Metrics</span>
-    </div>
+    </a>
+
     <div class="tile">
       <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="GPS" />
       <span>GPS</span>
     </div>
+
     <div class="tile">
       <img src="https://cdn-icons-png.flaticon.com/512/564/564445.png" alt="Alarm" />
       <span>Stop Alarm</span>
     </div>
+
     <div class="tile">
       <img src="https://cdn-icons-png.flaticon.com/512/7246/7246766.png" alt="Window" />
       <span>Open Window</span>
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

@@ -22,6 +22,9 @@ import {AboutComponent} from './pages/about/about.component';
 import {HelpCenterComponent} from './pages/help-center/help-center.component';
 import {SupportComponent} from './pages/support/support.component';
 import {NotificationsComponent} from './pages/notifications/notifications.component';
+import {GeolocationComponent} from './pages/geolocation/geolocation.component';
+import {VehicleMetricsComponent} from './pages/vehicle-metrics/vehicle-metrics.component';
+import {AccessibilityComponent} from './pages/accessibility/accessibility.component';
 
 
 
@@ -41,6 +44,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'help-center', component: HelpCenterComponent },
   { path: 'support', component: SupportComponent },
+  { path: 'geolocation', component: GeolocationComponent },
+  { path: 'vehicle-metrics', component: VehicleMetricsComponent },
+  { path: 'accessibility', component: AccessibilityComponent },
 ];
 
 
@@ -70,7 +76,10 @@ const routes: Routes = [
     MoreComponent,
     AboutComponent,
     HelpCenterComponent,
-    SupportComponent
+    SupportComponent,
+    GeolocationComponent,
+    VehicleMetricsComponent,
+    AccessibilityComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

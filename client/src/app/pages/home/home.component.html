@@ -4,9 +4,18 @@
   <div class="home-wrapper">
     <h2 class="welcome-text">Welcome back,<br />{{ username }}</h2>
 
-    <img src="images/car.png" alt="Car image" class="car-image" />
+    <img
+      src="images/car.png"
+      alt="Car image"
+      [class.active]="engineOn"
+      class="car-image"
+    />
 
-    <button class="start-button">
+    <button
+      class="start-button"
+      [class.active]="engineOn"
+      (click)="toggleEngine()"
+    >
       <img src="images/start_button.png" alt="Power Icon" class="power-icon" />
     </button>
 
