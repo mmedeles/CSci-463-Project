@@ -26,6 +26,7 @@
 - Add feature to home button to indicate if the engine is turned on or off
 - Update About, Help Center, and Support page
 - Add vehicle settings (Icon on Vehicle Control)
+- Add Priority for notifications
 ### Diagram Updates:
 
 - Class diagrams
