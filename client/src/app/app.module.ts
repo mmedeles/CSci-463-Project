@@ -24,6 +24,7 @@ import {SupportComponent} from './pages/support/support.component';
 import {NotificationsComponent} from './pages/notifications/notifications.component';
 import {GeolocationComponent} from './pages/geolocation/geolocation.component';
 import {VehicleMetricsComponent} from './pages/vehicle-metrics/vehicle-metrics.component';
+import {AccessibilityComponent} from './pages/accessibility/accessibility.component';
 
 
 
@@ -45,8 +46,7 @@ const routes: Routes = [
   { path: 'support', component: SupportComponent },
   { path: 'geolocation', component: GeolocationComponent },
   { path: 'vehicle-metrics', component: VehicleMetricsComponent },
-
-
+  { path: 'accessibility', component: AccessibilityComponent },
 ];
 
 
@@ -78,7 +78,8 @@ const routes: Routes = [
     HelpCenterComponent,
     SupportComponent,
     GeolocationComponent,
-    VehicleMetricsComponent
+    VehicleMetricsComponent,
+    AccessibilityComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
