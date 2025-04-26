@@ -33,4 +33,11 @@ export class ApiService {
       withCredentials: true  // ✅ send session cookie
     });
   }
+
+  //the lockDoor method is just a test
+  toggleLock(payload: {id: number}) {
+    return this.http.post(`${this.apiUrl}/toggleLock`, payload, {
+      withCredentials: true
+    });
+  }
 }

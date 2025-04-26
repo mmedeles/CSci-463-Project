@@ -26,7 +26,8 @@
 
     <div class="status-card">
       <div class="label">LOCKS</div>
-      <div class="value">Locked</div>
+      <button class="lock-icon" *ngIf="doorsLocked" (click)="toggleLock()"><img src="images/lock.jpg" alt="lock icon"></button>
+      <button class="unlock-icon" *ngIf="!doorsLocked" (click)="toggleLock()"><img src="images/unlock.jpg" alt="unlock icon"></button>
     </div>
 
     <div class="status-card">

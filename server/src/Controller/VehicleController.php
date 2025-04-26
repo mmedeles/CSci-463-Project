@@ -16,26 +16,29 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 class VehicleController extends AbstractController
 {
-    #[Route('/api/lock', name: 'vehicle_lock', methods: ['POST'])]
-    public function lockDoors(Request $request, EntityManagerInterface $em): Response
+    #[Route('/api/toggleLock', name: 'vehicle_lock', methods: ['POST'])]
+    public function toggleLock(Request $request, EntityManagerInterface $em): Response
     {
         $data = json_decode($request->getContent(), associative: true);
-
+        $returnMessage = '';
         $vehicle = $em->getRepository(Vehicle::class)->find($data['id']);
+
 
         if (!$vehicle) {
             return new JsonResponse(['message' => 'Vehicle not found'], Response::HTTP_NOT_FOUND);
         }
 
         if ($vehicle->isLocked()) {
-            return new JsonResponse(['message' => 'Vehicle is locked'], Response::HTTP_FORBIDDEN);
+            $vehicle->setisLocked(false);
+            $returnMessage = 'Vehicle is unlocked';
         } else {
             $vehicle->setisLocked(true);
+            $returnMessage = 'Vehicle is locked';
         }
 
         $em->persist($vehicle);
         $em->flush();
 
-        return new JsonResponse(['message' => 'Vehicle is locked'], Response::HTTP_OK);
+        return new JsonResponse(['message' => $returnMessage], Response::HTTP_OK);
     }
 }
