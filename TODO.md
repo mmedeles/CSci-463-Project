@@ -41,7 +41,9 @@
   - Adding/Deleting/Modifying user information,
 - Provide daytime and nighttime operation modes. (OPTIONAL)
 - Possibly add the feature to any live changes or executed functions will reflect in the notifications feed
-
+- Add phone # to the profile settings 
+-  Add license plate, vin #, make/model/year and color
+- Add Owner, added drivers to cars
 
 
 ### Diagram Updates:

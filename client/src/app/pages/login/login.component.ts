@@ -32,7 +32,6 @@ export class LoginComponent {
         this.success = true;
         this.message = 'Login successful ✅';
 
-        // 🔁 Redirect to /profile after a short delay
         setTimeout(() => {
           this.router.navigate(['/profile']);
         }, 500);
