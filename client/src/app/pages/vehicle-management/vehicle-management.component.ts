@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormsModule} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
-import {HeaderComponent} from '../header/header.component';
+import { FormsModule } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-vehicle-management',
@@ -10,41 +10,65 @@ import {HeaderComponent} from '../header/header.component';
   imports: [
     FormsModule,
     NgIf,
-    HeaderComponent,
-    NgForOf
+    NgForOf,
+    HeaderComponent
   ],
   styleUrls: ['./vehicle-management.component.scss']
 })
-export class VehicleManagementComponent {
+export class VehicleManagementComponent implements OnInit {
   vehicles: any[] = [];
-  showAddVehicleForm = false;
-
-  newVehicle = {
+  newVehicle: any = {
     make: '',
     model: '',
     year: '',
     color: '',
     licensePlate: '',
-    vin: ''
+    vin: '',
+    nickname: ''
   };
+  showAddVehicleForm = false;
 
   constructor(private router: Router) {}
 
-  addVehicle() {
-    this.vehicles.push({ ...this.newVehicle });
-    this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', vin: '' };
-    this.showAddVehicleForm = false;
-  }
-
-  removeVehicle(index: number) {
-    if (confirm('Are you sure you want to remove this vehicle?')) {
-      this.vehicles.splice(index, 1);
+  ngOnInit(): void {
+    const savedVehicles = localStorage.getItem('vehicles');
+    if (savedVehicles) {
+      this.vehicles = JSON.parse(savedVehicles);
     }
   }
 
-  goToVehicleControls(vehicle: any) {
-    // For now just navigate to vehicle-controls page
-    // Later: Pass vehicle data if needed
+  addVehicle(): void {
+    if (this.newVehicle.make && this.newVehicle.model) {
+      this.vehicles.push({ ...this.newVehicle });
+      this.saveVehicles();
+      this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', vin: '', nickname: '' };
+      this.showAddVehicleForm = false;
+      alert('Vehicle added successfully!');
+    }
+  }
+
+  removeVehicle(index: number): void {
+    if (confirm('Are you sure you want to delete this vehicle?')) {
+      this.vehicles.splice(index, 1);
+      this.saveVehicles();
+      alert('Vehicle deleted successfully!');
+    }
+  }
+
+  saveVehicles(): void {
+    localStorage.setItem('vehicles', JSON.stringify(this.vehicles));
+  }
+
+  goToVehicleControls(vehicle: any): void {
+    localStorage.setItem('selectedVehicle', JSON.stringify(vehicle));
     this.router.navigate(['/vehicle-controls']);
+  }
+
+  getDisplayName(vehicle: any): string {
+    if (vehicle.nickname && vehicle.nickname.trim() !== '') {
+      return `${vehicle.nickname} (${vehicle.year} ${vehicle.make} ${vehicle.model})`;
+    } else {
+      return `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+    }
   }
 }

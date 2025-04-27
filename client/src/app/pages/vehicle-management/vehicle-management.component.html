@@ -5,7 +5,7 @@
 
   <div *ngFor="let vehicle of vehicles; let i = index" class="vehicle-card">
     <div class="vehicle-info">
-      <div class="vehicle-name">{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}</div>
+      <div class="vehicle-name">{{ getDisplayName(vehicle) }}</div>
       <div class="vehicle-details">
         <p>Color: {{ vehicle.color }}</p>
         <p>Plate: {{ vehicle.licensePlate }}</p>
@@ -28,6 +28,7 @@
   </div>
 
   <form *ngIf="showAddVehicleForm" (ngSubmit)="addVehicle()" class="add-vehicle-form">
+    <input type="text" [(ngModel)]="newVehicle.nickname" name="nickname" placeholder="Nickname (Optional)" />
     <input type="text" [(ngModel)]="newVehicle.make" name="make" placeholder="Make" required />
     <input type="text" [(ngModel)]="newVehicle.model" name="model" placeholder="Model" required />
     <input type="text" [(ngModel)]="newVehicle.year" name="year" placeholder="Year" required />
