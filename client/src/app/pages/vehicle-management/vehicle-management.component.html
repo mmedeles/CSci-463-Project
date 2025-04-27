@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="mobile-page">
+  <h2 class="section-title">My Vehicles</h2>
+
+  <div *ngFor="let vehicle of vehicles; let i = index" class="vehicle-card">
+    <div class="vehicle-info">
+      <div class="vehicle-name">{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}</div>
+      <div class="vehicle-details">
+        <p>Color: {{ vehicle.color }}</p>
+        <p>Plate: {{ vehicle.licensePlate }}</p>
+        <p>VIN: {{ vehicle.vin }}</p>
+      </div>
+    </div>
+    <div class="vehicle-actions">
+      <button (click)="goToVehicleControls(vehicle)" title="Manage Vehicle">
+        <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Manage" class="action-icon" />
+      </button>
+      <button (click)="removeVehicle(i)" title="Delete Vehicle">
+        <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" alt="Delete" class="action-icon" />
+      </button>
+    </div>
+  </div>
+
+  <div class="add-vehicle" (click)="showAddVehicleForm = !showAddVehicleForm">
+    <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Add Vehicle" />
+    <span>Add New Vehicle</span>
+  </div>
+
+  <form *ngIf="showAddVehicleForm" (ngSubmit)="addVehicle()" class="add-vehicle-form">
+    <input type="text" [(ngModel)]="newVehicle.make" name="make" placeholder="Make" required />
+    <input type="text" [(ngModel)]="newVehicle.model" name="model" placeholder="Model" required />
+    <input type="text" [(ngModel)]="newVehicle.year" name="year" placeholder="Year" required />
+    <input type="text" [(ngModel)]="newVehicle.color" name="color" placeholder="Color" required />
+    <input type="text" [(ngModel)]="newVehicle.licensePlate" name="licensePlate" placeholder="License Plate" required />
+    <input type="text" [(ngModel)]="newVehicle.vin" name="vin" placeholder="VIN" required />
+    <button class="save-btn" type="submit">Save Vehicle</button>
+  </form>
+</div>
