@@ -82,3 +82,62 @@
     }
   }
 }
+
+.edit-driver-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  .driver-input {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .vehicle-select {
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .vehicle-option {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+
+    .vehicle-option.selected {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .save {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .cancel {
+      background-color: #ccc;
+      color: black;
+    }
+  }
+}

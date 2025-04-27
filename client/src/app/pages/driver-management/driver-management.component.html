@@ -3,26 +3,49 @@
 <div class="mobile-page">
   <h2 class="section-title">Driver Management</h2>
 
-  <div *ngFor="let driver of drivers" class="driver-card">
-    <div class="driver-info">
-      <div class="driver-name">{{ driver.name }}</div>
-      <div class="driver-email">{{ driver.email }}</div>
+  <!-- If adding/editing a driver -->
+  <div *ngIf="isEditing" class="edit-driver-form">
+    <input [(ngModel)]="newDriverName" type="text" placeholder="Enter driver name" class="driver-input" />
+
+    <div class="vehicle-select">
+      <h4>Select Vehicle:</h4>
+      <div *ngFor="let vehicle of vehicles" class="vehicle-option"
+           [class.selected]="selectedVehicle === vehicle"
+           (click)="selectedVehicle = vehicle">
+        {{ getVehicleDisplay(vehicle) }}
+      </div>
     </div>
-    <div class="action-icons">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
-           alt="Edit"
-           title="Edit"
-           (click)="editDriver(driver)" />
-      <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
-           alt="Remove"
-           title="Remove"
-           (click)="removeDriver(driver)" />
+
+    <div class="button-group">
+      <button (click)="saveDriver()" class="btn save">Save</button>
+      <button (click)="cancel()" class="btn cancel">Cancel</button>
     </div>
   </div>
 
-  <div class="add-driver" (click)="addDriver()">
-    <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Add" />
-    <span>Add New Driver</span>
+  <!-- List of drivers -->
+  <div *ngIf="!isEditing">
+    <div *ngFor="let driver of drivers" class="driver-card">
+      <div class="driver-info">
+        <div class="driver-name">{{ driver.name }}</div>
+        <div class="driver-vehicle">
+          Vehicle: {{ getVehicleDisplay(driver.vehicle) }}
+        </div>
+      </div>
+      <div class="action-icons">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
+             alt="Edit"
+             title="Edit"
+             (click)="startEditDriver(driver)" />
+        <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+             alt="Remove"
+             title="Remove"
+             (click)="removeDriver(driver)" />
+      </div>
+    </div>
+
+    <div class="add-driver" (click)="startAddDriver()">
+      <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Add" />
+      <span>Add New Driver</span>
+    </div>
   </div>
 </div>
-
