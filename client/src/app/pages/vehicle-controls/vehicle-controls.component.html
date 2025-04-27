@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="mobile-page">
+  <div class="section-title">Vehicle Settings</div>
+
+  <div class="settings-tile" routerLink="/driver-management">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Driver" />
+    <span>Add/Remove Drivers</span>
+  </div>
+
+  <div class="settings-tile" (click)="openSetNicknameDialog()">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" alt="Nickname" />
+    <span>Set Nickname</span>
+  </div>
+
+  <div class="settings-tile delete" (click)="confirmDeleteVehicle()">
+    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" alt="Delete" />
+    <span>Delete Vehicle</span>
+  </div>
+</div>
