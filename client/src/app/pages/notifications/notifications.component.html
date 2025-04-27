@@ -9,7 +9,11 @@
 
   <div class="notification-section" *ngFor="let group of groupedNotifications">
     <h3 class="section-title">{{ group.label }}</h3>
-    <div class="notification-card" *ngFor="let item of group.entries">
+    <div
+      class="notification-card"
+      *ngFor="let item of group.entries"
+      [ngClass]="getPriorityClass(item.priority)"
+    >
       <p class="notification-title">{{ item.title }}</p>
       <p class="notification-time">{{ item.time }} — {{ item.model }}</p>
     </div>

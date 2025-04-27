@@ -5,7 +5,6 @@
   box-sizing: border-box;
   height: 590px;
   background-color: #f4f4f4;
-;
 }
 
 .filter-bar {
@@ -49,4 +48,17 @@
     font-size: 0.8rem;
     color: #666;
   }
+}
+
+/* Priority-based color styling */
+.informative {
+  background-color: #e6f0ff;
+}
+
+.warning {
+  background-color: #fff8e1;
+}
+
+.critical {
+  background-color: #ffe6e6;
 }
