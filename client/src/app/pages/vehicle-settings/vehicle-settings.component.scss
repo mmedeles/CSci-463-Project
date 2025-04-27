@@ -6,27 +6,39 @@
   background-color: #f9f9f9;
 }
 
-/* Header */
 .vehicle-banner {
   background-color: #eaeaea;
   text-align: center;
   border-radius: 8px;
   padding: 1rem;
+  position: relative;
+
+  .vehicle-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
   .vehicle-title {
-    display: block;
     font-weight: bold;
-    margin-bottom: 0.5rem;
     font-size: 1rem;
+  }
+
+  .arrow-icon {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
   }
 
   .vehicle-image {
     width: 200px;
     height: auto;
+    margin-top: 0.5rem;
   }
 }
 
-/* Grid Layout */
+/* Grid Layout and Tiles (your original style) */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -34,7 +46,6 @@
   margin-top: 1rem;
 }
 
-/* Tiles */
 .tile {
   background-color: #000;
   border-radius: 12px;

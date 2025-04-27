@@ -56,11 +56,9 @@ export class DriverManagementComponent implements OnInit {
     }
 
     if (this.editingDriver) {
-      // Editing existing driver
       this.editingDriver.name = this.newDriverName;
       this.editingDriver.vehicle = this.selectedVehicle;
     } else {
-      // Adding new driver
       this.drivers.push({
         name: this.newDriverName,
         vehicle: this.selectedVehicle

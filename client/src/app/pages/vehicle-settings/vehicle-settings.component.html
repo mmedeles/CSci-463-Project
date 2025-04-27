@@ -2,7 +2,16 @@
 
 <div class="vehicle-settings-container">
   <div class="vehicle-banner">
-    <span class="vehicle-title">{{ vehicleName }}</span>
+    <div class="vehicle-header">
+      <span class="vehicle-title">{{ vehicleName }}</span>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/130/130882.png"
+        alt="Next Vehicle"
+        class="arrow-icon"
+        (click)="nextVehicle()"
+      />
+    </div>
+
     <img src="images/car.png" alt="Vehicle" class="vehicle-image" />
   </div>
 
