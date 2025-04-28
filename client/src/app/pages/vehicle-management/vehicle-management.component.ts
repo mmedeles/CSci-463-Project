@@ -24,8 +24,7 @@ export class VehicleManagementComponent implements OnInit {
     year: '',
     color: '',
     licensePlate: '',
-    vin: '',
-    nickname: ''
+    fuelType: ''
   };
   showAddVehicleForm = false;
 
@@ -39,11 +38,11 @@ export class VehicleManagementComponent implements OnInit {
   }
 
   addVehicle(): void {
-    if (this.newVehicle.make && this.newVehicle.model) {
+    if (this.newVehicle.make && this.newVehicle.model && this.newVehicle.fuelType) {
       const newEntry = { ...this.newVehicle };
       this.vehicles.push(newEntry);
       this.saveVehicles();
-      this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', vin: '', nickname: '' };
+      this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', fuelType: '' };
       this.showAddVehicleForm = false;
       alert('Vehicle added successfully!');
       this.notificationService.addNotification(`Vehicle Added: ${newEntry.year} ${newEntry.make} ${newEntry.model}`);

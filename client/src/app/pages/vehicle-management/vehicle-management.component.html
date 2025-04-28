@@ -9,7 +9,7 @@
       <div class="vehicle-details">
         <p>Color: {{ vehicle.color }}</p>
         <p>Plate: {{ vehicle.licensePlate }}</p>
-        <p>VIN: {{ vehicle.vin }}</p>
+        <p>Fuel Type: {{ vehicle.fuelType }}</p> <!-- Fuel Type here -->
       </div>
     </div>
     <div class="vehicle-actions">
@@ -28,13 +28,19 @@
   </div>
 
   <form *ngIf="showAddVehicleForm" (ngSubmit)="addVehicle()" class="add-vehicle-form">
-    <input type="text" [(ngModel)]="newVehicle.nickname" name="nickname" placeholder="Nickname (Optional)" />
     <input type="text" [(ngModel)]="newVehicle.make" name="make" placeholder="Make" required />
     <input type="text" [(ngModel)]="newVehicle.model" name="model" placeholder="Model" required />
     <input type="text" [(ngModel)]="newVehicle.year" name="year" placeholder="Year" required />
     <input type="text" [(ngModel)]="newVehicle.color" name="color" placeholder="Color" required />
     <input type="text" [(ngModel)]="newVehicle.licensePlate" name="licensePlate" placeholder="License Plate" required />
-    <input type="text" [(ngModel)]="newVehicle.vin" name="vin" placeholder="VIN" required />
+
+    <!-- Fuel Type Selection -->
+    <div class="fuel-type-selector">
+      <label><input type="radio" [(ngModel)]="newVehicle.fuelType" name="fuelType" value="Gas" required> Gas</label>
+      <label><input type="radio" [(ngModel)]="newVehicle.fuelType" name="fuelType" value="Hybrid"> Hybrid</label>
+      <label><input type="radio" [(ngModel)]="newVehicle.fuelType" name="fuelType" value="EV"> EV</label>
+    </div>
+
     <button class="save-btn" type="submit">Save Vehicle</button>
   </form>
 </div>
