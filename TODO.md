@@ -44,6 +44,7 @@
 - Add phone # to the profile settings 
 -  Add license plate, vin #, make/model/year and color
 - Add Owner, added drivers to cars
+- Gas, EV, Hybrid option for adding vehicles
 
 
 ### Diagram Updates:
