@@ -1,17 +1,18 @@
-<h2>Login</h2>
-<form (submit)="login()">
-    <label>
-        Username:
-        <input type="text" [(ngModel)]="username" name="username" required />
-    </label><br>
 
-    <label>
-        Password:
-        <input type="password" [(ngModel)]="password" name="password" required />
-    </label><br>
+<div class="auth-container">
+  <h2 class="auth-title">Login</h2>
 
-    <button type="submit">Login</button>
-</form>
+  <form (submit)="login()" class="auth-form">
+    <label for="username">Username</label>
+    <input id="username" type="text" [(ngModel)]="username" name="username" required />
 
-<div *ngIf="success" style="color: green;">{{ message }}</div>
-<div *ngIf="!success && message" style="color: red;">{{ message }}</div>
+    <label for="password">Password</label>
+    <input id="password" type="password" [(ngModel)]="password" name="password" required />
+
+    <button type="submit" class="auth-btn">Login</button>
+  </form>
+
+  <div *ngIf="success" class="success-message">{{ message }}</div>
+  <div *ngIf="!success && message" class="error-message">{{ message }}</div>
+</div>
+
