@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-vehicle-metrics',
@@ -8,7 +9,8 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   imports: [
     NgForOf,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   styleUrls: ['./vehicle-metrics.component.scss']
 })
