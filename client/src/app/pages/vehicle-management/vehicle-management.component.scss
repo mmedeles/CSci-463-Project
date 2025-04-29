@@ -110,3 +110,19 @@
     }
   }
 }
+
+
+.fuel-type-selector {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    input[type="radio"] {
+      margin-right: 0.25rem;
+    }
+  }
+}

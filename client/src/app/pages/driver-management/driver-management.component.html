@@ -8,7 +8,8 @@
 
     <div class="vehicle-select">
       <h4>Select Vehicle:</h4>
-      <div *ngFor="let vehicle of vehicles" class="vehicle-option"
+      <div *ngFor="let vehicle of vehicles"
+           class="vehicle-option"
            [class.selected]="selectedVehicle === vehicle"
            (click)="selectedVehicle = vehicle">
         {{ getVehicleDisplay(vehicle) }}
@@ -21,7 +22,6 @@
     </div>
   </div>
 
-  <!-- List of drivers -->
   <div *ngIf="!isEditing">
     <div *ngFor="let driver of drivers" class="driver-card">
       <div class="driver-info">

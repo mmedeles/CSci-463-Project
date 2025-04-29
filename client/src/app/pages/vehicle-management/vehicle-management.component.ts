@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-vehicle-management',
@@ -23,12 +24,11 @@ export class VehicleManagementComponent implements OnInit {
     year: '',
     color: '',
     licensePlate: '',
-    vin: '',
-    nickname: ''
+    fuelType: ''
   };
   showAddVehicleForm = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private notificationService: NotificationService) {}
 
   ngOnInit(): void {
     const savedVehicles = localStorage.getItem('vehicles');
@@ -38,20 +38,24 @@ export class VehicleManagementComponent implements OnInit {
   }
 
   addVehicle(): void {
-    if (this.newVehicle.make && this.newVehicle.model) {
-      this.vehicles.push({ ...this.newVehicle });
+    if (this.newVehicle.make && this.newVehicle.model && this.newVehicle.fuelType) {
+      const newEntry = { ...this.newVehicle };
+      this.vehicles.push(newEntry);
       this.saveVehicles();
-      this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', vin: '', nickname: '' };
+      this.newVehicle = { make: '', model: '', year: '', color: '', licensePlate: '', fuelType: '' };
       this.showAddVehicleForm = false;
       alert('Vehicle added successfully!');
+      this.notificationService.addNotification(`Vehicle Added: ${newEntry.year} ${newEntry.make} ${newEntry.model}`);
     }
   }
 
   removeVehicle(index: number): void {
+    const vehicle = this.vehicles[index];
     if (confirm('Are you sure you want to delete this vehicle?')) {
       this.vehicles.splice(index, 1);
       this.saveVehicles();
       alert('Vehicle deleted successfully!');
+      this.notificationService.addNotification(`Vehicle Deleted: ${vehicle.year} ${vehicle.make} ${vehicle.model}`);
     }
   }
 

@@ -1,17 +1,16 @@
-<h2>Register</h2>
-<form (submit)="register()">
-    <label>
-        Username:
-        <input type="text" [(ngModel)]="username" name="username" required />
-    </label><br>
+<div class="auth-container">
+  <h2 class="auth-title">Register</h2>
 
-    <label>
-        Password:
-        <input type="password" [(ngModel)]="password" name="password" required />
-    </label><br>
+  <form (submit)="register()" class="auth-form">
+    <label for="username">Username</label>
+    <input id="username" type="text" [(ngModel)]="username" name="username" required />
 
-    <button type="submit">Register</button>
-</form>
+    <label for="password">Password</label>
+    <input id="password" type="password" [(ngModel)]="password" name="password" required />
 
-<div *ngIf="success" style="color: green;">✅ Registration successful</div>
-<div *ngIf="!success && message" style="color: red;">❌ {{ message }}</div>
+    <button type="submit" class="auth-btn">Register</button>
+  </form>
+
+  <div *ngIf="success" class="success-message">✅ Registration successful</div>
+  <div *ngIf="!success && message" class="error-message">❌ {{ message }}</div>
+</div>

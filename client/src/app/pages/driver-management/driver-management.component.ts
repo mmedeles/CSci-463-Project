@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-driver-management',
   templateUrl: './driver-management.component.html',
+  styleUrls: ['./driver-management.component.scss'],
+  standalone: true,
   imports: [
     HeaderComponent,
     NgForOf,
     NgIf,
     FormsModule
-  ],
-  styleUrls: ['./driver-management.component.scss']
+  ]
 })
 export class DriverManagementComponent implements OnInit {
   drivers: any[] = [];
@@ -22,7 +24,7 @@ export class DriverManagementComponent implements OnInit {
   selectedVehicle: any = null;
   newDriverName = '';
 
-  constructor() {}
+  constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
     const savedDrivers = localStorage.getItem('drivers');
@@ -58,11 +60,13 @@ export class DriverManagementComponent implements OnInit {
     if (this.editingDriver) {
       this.editingDriver.name = this.newDriverName;
       this.editingDriver.vehicle = this.selectedVehicle;
+      this.notificationService.addNotification(`Driver ${this.newDriverName} updated.`);
     } else {
       this.drivers.push({
         name: this.newDriverName,
         vehicle: this.selectedVehicle
       });
+      this.notificationService.addNotification(`Driver ${this.newDriverName} added.`);
     }
 
     this.saveDrivers();
@@ -74,6 +78,7 @@ export class DriverManagementComponent implements OnInit {
     if (confirmed) {
       this.drivers = this.drivers.filter(d => d !== driver);
       this.saveDrivers();
+      this.notificationService.addNotification(`Driver ${driver.name} removed.`);
     }
   }
 
@@ -89,7 +94,7 @@ export class DriverManagementComponent implements OnInit {
   }
 
   getVehicleDisplay(vehicle: any): string {
-    return vehicle.nickname ? `${vehicle.nickname} (${vehicle.year} ${vehicle.make} ${vehicle.model})`
+    return vehicle?.nickname ? `${vehicle.nickname} (${vehicle.year} ${vehicle.make} ${vehicle.model})`
       : `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
   }
 }
