@@ -36,21 +36,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  //TODO - fix lockDoor to get current vehicle information
+  //removed API call
   toggleLock(): void{
-    const payload = {id: 1}
-
-    this.apiService.toggleLock(payload).subscribe({
-      next: () => {
-        this.success = true;
-        this.doorsLocked = !this.doorsLocked;
-      },
-      error: (err) => {
-        this.success = false;
-        console.error(err);
-      }
-      }
-    )
+    this.doorsLocked = !this.doorsLocked;
   }
 
   toggleEngine(): void {
