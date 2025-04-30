@@ -16,33 +16,33 @@
   </div>
 
   <div class="grid-container">
-    <div class="tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/484/484167.png" alt="Lock" />
-      <span>Lock / Unlock</span>
+    <div class="tile" (click)="lockOrUnlock()">
+      <img src="images/lock-unlock.png" alt="Lock" />
+      <span>{{ isLocked ? 'Unlock Vehicle' : 'Lock Vehicle' }}</span>
     </div>
 
     <div class="tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Start" />
+      <img src="images/engine.png" alt="Start" />
       <span>Start Engine</span>
     </div>
 
-    <a class="tile" routerLink="/vehicle-metrics">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828915.png" alt="Metrics" />
+    <div class="tile" [routerLink]="['/vehicle-metrics']">
+      <img src="images/metrics.png" alt="Metrics" />
       <span>Metrics</span>
-    </a>
+    </div>
 
     <div class="tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="GPS" />
+      <img src="images/gps.png" alt="GPS" />
       <span>GPS</span>
     </div>
 
-    <div class="tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/564/564445.png" alt="Alarm" />
-      <span>Stop Alarm</span>
+    <div class="tile" (click)="stopAlarm()">
+      <img src="images/alarm.png" alt="Alarm" />
+      <span>{{ isAlarmOn ? 'Alarm On' : 'Alarm Off' }}</span>
     </div>
 
     <div class="tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/7246/7246766.png" alt="Window" />
+      <img src="images/window.png" alt="Window" />
       <span>Open Window</span>
     </div>
   </div>

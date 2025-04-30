@@ -18,6 +18,10 @@ export class VehicleSettingsComponent implements OnInit {
   selectedVehicleIndex = 0;
   vehicleName: string = 'No Vehicles';
 
+  // State tracking
+  isLocked: boolean = true;
+  isAlarmOn: boolean = false;
+
   ngOnInit(): void {
     const savedVehicles = localStorage.getItem('vehicles');
     if (savedVehicles) {
@@ -46,5 +50,15 @@ export class VehicleSettingsComponent implements OnInit {
       this.selectedVehicleIndex = (this.selectedVehicleIndex + 1) % this.vehicles.length;
       this.updateVehicleDisplay();
     }
+  }
+
+  lockOrUnlock(): void {
+    this.isLocked = !this.isLocked;
+    alert(`Vehicle is now ${this.isLocked ? 'locked' : 'unlocked'}`);
+  }
+
+  stopAlarm(): void {
+    this.isAlarmOn = !this.isAlarmOn;
+    alert(`Alarm is now ${this.isAlarmOn ? 'ON' : 'OFF'}`);
   }
 }
