@@ -23,7 +23,6 @@ export class VehicleMetricsComponent implements OnInit {
   }
 
   initializeMetrics(): void {
-    // Load existing default metrics
     this.metrics = [
       { label: 'Engine Temp', value: '212°F' },
       { label: 'Fuel Economy', value: '26.4 MPG' },
@@ -32,13 +31,11 @@ export class VehicleMetricsComponent implements OnInit {
       { label: 'External Temp', value: '32°F' }
     ];
 
-    // Check for selected vehicle
     const savedVehicle = localStorage.getItem('selectedVehicle');
     if (savedVehicle) {
       const vehicle = JSON.parse(savedVehicle);
       this.fuelType = vehicle.fuelType || '';
 
-      // Add fuel-type specific metric
       if (this.fuelType === 'EV') {
         this.metrics.unshift({ label: 'Battery Level', value: '85%' });
       } else if (this.fuelType === 'Gas') {
